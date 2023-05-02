@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ChartData, ChartEvent, ChartType, Color, Colors, Title } from 'chart.js';
 
 
@@ -10,12 +10,12 @@ import { ChartData, ChartEvent, ChartType, Color, Colors, Title } from 'chart.js
 })
 export class DonaComponent {
 
-title: string = 'Sin Titulo';
+@Input() title: string = 'Sin titulo';
 
 
     // Doughnut
-   public doughnutChartLabels:  string[]=[ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
-    public doughnutChartData: ChartData<'doughnut'> = {
+   @Input('labels') doughnutChartLabels:  string[]=[ 'label 1', 'label 2', 'label 3' ];
+    @Input('data') doughnutChartData: ChartData<'doughnut'> = {
       labels: this.doughnutChartLabels,
       datasets: [
         { data: [ 350, 450, 100 ] },
